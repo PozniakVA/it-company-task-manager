@@ -41,6 +41,7 @@ class Task(models.Model):
     deadline = models.DateField()
     is_completed = models.BooleanField(default=False)
     priority = models.CharField(
+        max_length=20,
         choices=PRIORITY,
         default="Standard"
     )
@@ -52,3 +53,6 @@ class Task(models.Model):
         Worker,
         related_name="assignees"
     )
+
+    def __str__(self) -> str:
+        return self.name
