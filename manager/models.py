@@ -51,7 +51,7 @@ class Task(models.Model):
     )
     assignees = models.ManyToManyField(
         Worker,
-        related_name="assignees"
+        related_name="tasks"
     )
 
     def __str__(self) -> str:
