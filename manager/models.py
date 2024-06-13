@@ -30,6 +30,10 @@ class Worker(AbstractUser):
         blank=True
     )
 
+    class Meta:
+        verbose_name = "Worker"
+        verbose_name_plural = "Workers"
+
     def __str__(self) -> str:
         return f"{self.username} ({self.first_name} {self.last_name})"
 
