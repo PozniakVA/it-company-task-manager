@@ -1,6 +1,12 @@
-<ul>
-  <li>Workers {{ num_workers }}</li>
-  <li>Tasks {{ num_not_completed_tasks }}</li>
-  <li>Fast Track {{ num_not_completed_fast_track_tasks }}</li>
-  <li>You visited our site {{ num_visits }} time{{ num_visits|pluralize }}!</li>
-</ul>
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Task Manager Home</h1>
+  <ul>
+    <li>Workers: {{ num_workers }}</li>
+    <li>Unfulfilled tasks: {{ num_not_completed_tasks }}</li>
+    <li>Unfulfilled <b>Fast Track</b> tasks: {{ num_not_completed_fast_track_tasks }}</li>
+  </ul>
+  <p>You visited our site {{ num_visits }} time{{ num_visits|pluralize }}!</p>
+{% endblock %}
+
