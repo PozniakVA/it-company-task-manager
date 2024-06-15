@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import generic
 
 from manager.models import Worker, Task
 
@@ -22,3 +23,7 @@ def index(request) -> HttpResponse:
         "num_visits": num_visits,
     }
     return render(request, "manager/index.html", context=context)
+
+
+class WorkerListView(generic.ListView):
+    model = Worker
