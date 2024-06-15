@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import generic
 
-from manager.models import Worker, Task, Position
+from manager.models import Worker, Task, Position, TaskType
 
 
 def index(request) -> HttpResponse:
@@ -35,3 +35,9 @@ class TaskListView(generic.ListView):
 
 class PositionListView(generic.ListView):
     model = Position
+
+
+class TaskTypeListView(generic.ListView):
+    context_object_name = "task_type_list"
+    template_name = "manager/task_type_list.html"
+    model = TaskType
