@@ -14,7 +14,7 @@ urlpatterns = [
     path("worker/", WorkerListView.as_view(), name="worker"),
     path("task/", TaskListView.as_view(), name="task"),
     path("position/", PositionListView.as_view(), name="position"),
-    path("task_type/", TaskTypeListView.as_view(), name="task-type-list"),
+    path("task-type/", TaskTypeListView.as_view(), name="task-type-list"),
 ]
 
 app_name = "manager"
