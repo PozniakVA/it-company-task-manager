@@ -27,17 +27,21 @@ def index(request) -> HttpResponse:
 
 class WorkerListView(generic.ListView):
     model = Worker
+    paginate_by = 3
 
 
 class TaskListView(generic.ListView):
     model = Task
+    paginate_by = 3
 
 
 class PositionListView(generic.ListView):
     model = Position
+    paginate_by = 3
 
 
 class TaskTypeListView(generic.ListView):
+    model = TaskType
     context_object_name = "task_type_list"
     template_name = "manager/task_type_list.html"
-    model = TaskType
+    paginate_by = 3
