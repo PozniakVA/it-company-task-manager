@@ -27,3 +27,7 @@ def index(request) -> HttpResponse:
 
 class WorkerListView(generic.ListView):
     model = Worker
+
+
+class TaskListView(generic.ListView):
+    model = Task
