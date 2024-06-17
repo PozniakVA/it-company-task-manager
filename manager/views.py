@@ -51,6 +51,12 @@ class TaskCreateView(generic.CreateView):
     success_url = reverse_lazy("manager:task")
 
 
+class TaskUpdateView(generic.UpdateView):
+    model = Task
+    form_class = TaskForm
+    success_url = reverse_lazy("manager:task")
+
+
 class PositionListView(generic.ListView):
     model = Position
     paginate_by = 3

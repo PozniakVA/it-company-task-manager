@@ -16,6 +16,7 @@
         <th>Priority</th>
         <th>Type</th>
         <th>Deadline</th>
+        <th>Delete</th>
       </tr>
       {% for task in task_list %}
         <tr>
@@ -24,6 +25,7 @@
           <td>{{ task.priority }}</td>
           <td>{{ task.type }}</td>
           <td>{{ task.deadline }}</td>
+          <td><a href="{% url 'manager:task-update' pk=task.id %}">UPDATE</a></td>
         </tr>
       {% endfor %}
     </table>
