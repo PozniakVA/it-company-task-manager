@@ -27,3 +27,15 @@ class TaskForm(forms.ModelForm):
             "description",
             "assignees"
         )
+
+
+class TaskAssignDeleteForm(forms.ModelForm):
+    assignees = forms.ModelMultipleChoiceField(
+        queryset=get_user_model().objects.all(),
+        widget=CheckboxSelectMultiple,
+        required=False,
+    )
+
+    class Meta:
+        model = Task
+        fields = ("assignees",)

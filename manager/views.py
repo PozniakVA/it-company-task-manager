@@ -1,10 +1,9 @@
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from manager.forms import TaskForm
+from manager.forms import TaskForm, TaskAssignDeleteForm
 from manager.models import Worker, Task, Position, TaskType
 
 
@@ -50,11 +49,21 @@ class TaskCreateView(generic.CreateView):
     form_class = TaskForm
     success_url = reverse_lazy("manager:task")
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Create task"
+        return context
+
 
 class TaskUpdateView(generic.UpdateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy("manager:task")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Update task"
+        return context
 
 
 class TaskDeleteView(generic.DeleteView):
@@ -72,3 +81,13 @@ class TaskTypeListView(generic.ListView):
     context_object_name = "task_type_list"
     template_name = "manager/task_type_list.html"
     paginate_by = 3
+
+
+class AssignDeleteUserToTaskView(generic.UpdateView):
+    model = Task
+    form_class = TaskAssignDeleteForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Assign task to workers"
+        return context

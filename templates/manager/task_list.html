@@ -16,6 +16,7 @@
         <th>Priority</th>
         <th>Type</th>
         <th>Deadline</th>
+        <th>Assign</th>
         <th>Update</th>
         <th>Delete</th>
       </tr>
@@ -26,8 +27,22 @@
           <td>{{ task.priority }}</td>
           <td>{{ task.type }}</td>
           <td>{{ task.deadline }}</td>
-          <td><a href="{% url 'manager:task-update' pk=task.id %}">UPDATE</a></td>
-          <td><a href="{% url 'manager:task-delete' pk=task.id %}">DELETE</a></td>
+          <td>
+            <a href="{% url 'manager:task-assign-delete' pk=task.id %}" class="btn btn-success">
+              ASSIGN
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'manager:task-update' pk=task.id %}" class="btn btn-warning">
+              UPDATE
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'manager:task-delete' pk=task.id %}" class="btn btn-danger">
+              DELETE
+            </a>
+          </td>
+        
         </tr>
       {% endfor %}
     </table>
