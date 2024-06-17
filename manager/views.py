@@ -20,7 +20,8 @@ def index(request) -> HttpResponse:
     context = {
         "num_workers": num_workers,
         "num_not_completed_tasks": num_not_completed_tasks,
-        "num_not_completed_fast_track_tasks": num_not_completed_fast_track_tasks,
+        "num_not_completed_fast_track_tasks":
+            num_not_completed_fast_track_tasks,
         "num_visits": num_visits,
     }
     return render(request, "manager/index.html", context=context)
