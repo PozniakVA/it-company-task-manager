@@ -7,7 +7,8 @@ from manager.forms import (
     TaskForm,
     TaskAssignDeleteForm,
     WorkerSearchForm,
-    TaskSearchForm
+    TaskSearchForm,
+    PositionSearchForm
 )
 from manager.models import Worker, Task, Position, TaskType
 
@@ -106,6 +107,19 @@ class TaskDeleteView(generic.DeleteView):
 class PositionListView(generic.ListView):
     model = Position
     paginate_by = 3
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(PositionListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+        context["search_form"] = PositionSearchForm(initial={"name": name})
+        return context
+
+    def get_queryset(self):
+        queryset = Position.objects.all()
+        form = PositionSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(name__icontains=form.cleaned_data["name"])
+        return queryset
 
 
 class TaskTypeListView(generic.ListView):
