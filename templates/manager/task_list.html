@@ -19,6 +19,7 @@
         <th>Assign</th>
         <th>Update</th>
         <th>Delete</th>
+        <th>Done</th>
       </tr>
       {% for task in task_list %}
         <tr>
@@ -41,6 +42,17 @@
             <a href="{% url 'manager:task-delete' pk=task.id %}" class="btn btn-danger">
               DELETE
             </a>
+          </td>
+          <td>
+            {% if task.is_completed %}
+            <a href="{% url 'manager:task-done' pk=task.id %}" class="btn btn-danger">
+              Cancel
+            </a>
+            {% else %}
+              <a href="{% url 'manager:task-done' pk=task.id %}" class="btn btn-success">
+              Done
+            </a>
+            {% endif %}
           </td>
         
         </tr>

@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -88,7 +88,15 @@ class AssignDeleteUserToTaskView(generic.UpdateView):
     model = Task
     form_class = TaskAssignDeleteForm
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: object) -> object:
         context = super().get_context_data(**kwargs)
         context["title"] = "Assign task to workers"
         return context
+
+
+def task_done(request, pk) -> HttpResponseRedirect:
+    task = Task.objects.get(id=pk)
+    task.is_completed = not task.is_completed
+    task.save()
+    return HttpResponseRedirect(reverse_lazy("manager:task"))
+
