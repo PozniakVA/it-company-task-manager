@@ -3,7 +3,7 @@ from django.db import models
 
 
 class TaskType(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(unique=True, max_length=100)
 
     class Meta:
         ordering = ["name"]
@@ -13,7 +13,7 @@ class TaskType(models.Model):
 
 
 class Position(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(unique=True, max_length=100)
 
     class Meta:
         ordering = ["name"]
@@ -43,7 +43,7 @@ class Task(models.Model):
         ("Fast Track", "Lower urgency")
     )
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(unique=True, max_length=100)
     description = models.TextField()
     deadline = models.DateField()
     is_completed = models.BooleanField(default=False)

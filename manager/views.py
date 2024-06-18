@@ -9,7 +9,7 @@ from manager.forms import (
     WorkerSearchForm,
     TaskSearchForm,
     PositionSearchForm,
-    TaskTypeSearchForm,
+    TaskTypeSearchForm, PositionForm,
 )
 from manager.models import Worker, Task, Position, TaskType
 
@@ -121,6 +121,12 @@ class PositionListView(generic.ListView):
         if form.is_valid():
             return queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
+
+
+class PositionCreateView(generic.CreateView):
+    model = Position
+    form_class = PositionForm
+    success_url = reverse_lazy("manager:position")
 
 
 class TaskTypeListView(generic.ListView):

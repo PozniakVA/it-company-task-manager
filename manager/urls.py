@@ -13,7 +13,8 @@ from manager.views import (
     TaskUpdateView,
     TaskDeleteView,
     AssignDeleteUserToTaskView,
-    task_done
+    task_done,
+    PositionCreateView
 )
 
 urlpatterns = [
@@ -42,6 +43,7 @@ urlpatterns = [
         task_done,
         name="task-done"),
     path("position/", PositionListView.as_view(), name="position"),
+    path("position/create/", PositionCreateView.as_view(), name="position-create"),
     path("task-type/", TaskTypeListView.as_view(), name="task-type-list"),
 ]
 
