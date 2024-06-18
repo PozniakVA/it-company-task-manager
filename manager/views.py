@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from manager.forms import TaskForm, TaskAssignDeleteForm
+from manager.forms import TaskForm, TaskAssignDeleteForm, WorkerSearchForm
 from manager.models import Worker, Task, Position, TaskType
 
 
@@ -31,6 +31,19 @@ class WorkerListView(generic.ListView):
     model = Worker
     paginate_by = 3
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(WorkerListView, self).get_context_data(**kwargs)
+        username = self.request.GET.get("username", "")
+        context["search_form"] = WorkerSearchForm(initial={"username": username})
+        return context
+
+    def get_queryset(self):
+        queryset = Worker.objects.all()
+        form = WorkerSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(username__icontains=form.cleaned_data["username"])
+        return queryset
+
 
 class WorkerDetailView(generic.DetailView):
     model = Worker
@@ -50,7 +63,7 @@ class TaskCreateView(generic.CreateView):
     form_class = TaskForm
     success_url = reverse_lazy("manager:task")
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: object) -> object:
         context = super().get_context_data(**kwargs)
         context["title"] = "Create task"
         return context
@@ -61,7 +74,7 @@ class TaskUpdateView(generic.UpdateView):
     form_class = TaskForm
     success_url = reverse_lazy("manager:task")
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: object) -> object:
         context = super().get_context_data(**kwargs)
         context["title"] = "Update task"
         return context

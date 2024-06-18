@@ -2,6 +2,8 @@
 
 {% block content %}
   <h1>Worker list</h1>
+  {% include "includes/search.html" %}
+  <br>
   {% if worker_list %}
     <table class="table">
       <tr>

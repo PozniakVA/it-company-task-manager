@@ -39,3 +39,12 @@ class TaskAssignDeleteForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ("assignees",)
+
+
+class WorkerSearchForm(forms.Form):
+    username = forms.CharField(
+        max_length=255,
+        label="",
+        required=False,
+        widget=forms.TextInput(attrs={"placeholder": "Search by username"})
+    )
