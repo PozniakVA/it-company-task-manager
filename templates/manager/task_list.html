@@ -6,8 +6,9 @@
     <a href="{% url 'manager:task-create' %}" class="btn btn-primary link-to-page">
       Create
     </a>
-  
   </h1>
+  {% include "includes/search.html" %}
+  <br>
   {% if task_list %}
     <table class="table">
       <tr>
