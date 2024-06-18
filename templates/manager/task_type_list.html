@@ -2,6 +2,8 @@
 
 {% block content %}
   <h1>Task type list</h1>
+  {% include "includes/search.html" %}
+  <br>
   {% if task_type_list %}
     {% for task_type in task_type_list %}
       <ul>

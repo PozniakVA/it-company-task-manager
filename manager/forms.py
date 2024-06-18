@@ -66,3 +66,12 @@ class PositionSearchForm(forms.Form):
         required=False,
         widget=forms.TextInput(attrs={"placeholder": "Search by position"})
     )
+
+
+class TaskTypeSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        label="",
+        required=False,
+        widget=forms.TextInput(attrs={"placeholder": "Search by type"})
+    )
