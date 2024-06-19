@@ -9,7 +9,7 @@ from manager.forms import (
     WorkerSearchForm,
     TaskSearchForm,
     PositionSearchForm,
-    TaskTypeSearchForm, PositionForm,
+    TaskTypeSearchForm, PositionForm, TaskTypeForm,
 )
 from manager.models import Worker, Task, Position, TaskType
 
@@ -167,6 +167,14 @@ class TaskTypeDetailView(generic.DetailView):
     model = TaskType
     template_name = "manager/task_type_detail.html"
     context_object_name = "task_type"
+
+
+class TaskTypeCreateView(generic.CreateView):
+    model = TaskType
+    form_class = TaskTypeForm
+    template_name = "manager/task_type_form.html"
+    context_object_name = "task_type"
+    success_url = reverse_lazy("manager:task-type-list")
 
 
 class AssignDeleteUserToTaskView(generic.UpdateView):
