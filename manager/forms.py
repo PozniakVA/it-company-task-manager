@@ -48,6 +48,7 @@ class PositionForm(forms.ModelForm):
 
 
 class TaskTypeForm(forms.ModelForm):
+
     class Meta:
         model = TaskType
         fields = "__all__"

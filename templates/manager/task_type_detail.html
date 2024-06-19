@@ -3,6 +3,9 @@
 {% block content %}
   <h1>
     {{ task_type.name }}
+    <a href="{% url 'manager:task-type-update' pk=task_type.id %}" class="btn btn-warning link-to-page">
+      Update
+    </a>
   </h1>
   <hr>
   <h4>All tasks of this type</h4>

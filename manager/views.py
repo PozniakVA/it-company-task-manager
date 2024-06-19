@@ -177,6 +177,14 @@ class TaskTypeCreateView(generic.CreateView):
     success_url = reverse_lazy("manager:task-type-list")
 
 
+class TaskTypeUpdateView(generic.UpdateView):
+    model = TaskType
+    form_class = TaskTypeForm
+    template_name = "manager/task_type_form.html"
+    context_object_name = "task_type"
+    success_url = reverse_lazy("manager:task-type-list")
+
+
 class AssignDeleteUserToTaskView(generic.UpdateView):
     model = Task
     form_class = TaskAssignDeleteForm
