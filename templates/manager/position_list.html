@@ -10,7 +10,9 @@
   {% if position_list %}
     {% for position in position_list %}
       <ul>
-        <li> {{ position }} </li>
+        <li>
+          <a href="{% url 'manager:position-detail' pk=position.id %}">{{ position }} </a>
+        </li>
       </ul>
     {% endfor %}
   {% else %}

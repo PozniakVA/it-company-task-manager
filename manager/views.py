@@ -129,6 +129,15 @@ class PositionCreateView(generic.CreateView):
     success_url = reverse_lazy("manager:position")
 
 
+class PositionDetailView(generic.DetailView):
+    model = Position
+
+
+class PositionDeleteView(generic.DeleteView):
+    model = Position
+    success_url = reverse_lazy("manager:position")
+
+
 class TaskTypeListView(generic.ListView):
     model = TaskType
     context_object_name = "task_type_list"
