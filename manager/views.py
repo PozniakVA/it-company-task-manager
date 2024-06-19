@@ -133,6 +133,12 @@ class PositionDetailView(generic.DetailView):
     model = Position
 
 
+class PositionUpdateView(generic.UpdateView):
+    model = Position
+    form_class = PositionForm
+
+
+
 class PositionDeleteView(generic.DeleteView):
     model = Position
     success_url = reverse_lazy("manager:position")
