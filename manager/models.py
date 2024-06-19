@@ -55,7 +55,8 @@ class Task(models.Model):
     )
     task_type = models.ForeignKey(
         TaskType,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="tasks",
     )
     assignees = models.ManyToManyField(
         Worker,

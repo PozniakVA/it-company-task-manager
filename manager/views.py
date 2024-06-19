@@ -138,7 +138,6 @@ class PositionUpdateView(generic.UpdateView):
     form_class = PositionForm
 
 
-
 class PositionDeleteView(generic.DeleteView):
     model = Position
     success_url = reverse_lazy("manager:position")
@@ -162,6 +161,12 @@ class TaskTypeListView(generic.ListView):
         if form.is_valid():
             return queryset.filter(name__icontains=form.cleaned_data["name"])
         return queryset
+
+
+class TaskTypeDetailView(generic.DetailView):
+    model = TaskType
+    template_name = "manager/task_type_detail.html"
+    context_object_name = "task_type"
 
 
 class AssignDeleteUserToTaskView(generic.UpdateView):

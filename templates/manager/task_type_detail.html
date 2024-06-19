@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ task_type.name }}
+  </h1>
+  <hr>
+  <h4>All tasks of this type</h4>
+  <br>
+  {% if task_type.tasks.all %}
+    {% for task in task_type.tasks.all %}
+      <ul>
+        <li>
+          <a href="{% url 'manager:task-detail' pk=task.id %}">
+            {{ task.name }}
+          </a>
+        </li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>There are no tasks</p>
+  {% endif %}
+{% endblock %}
