@@ -20,7 +20,8 @@ from manager.views import (
     PositionUpdateView,
     TaskTypeDetailView,
     TaskTypeCreateView,
-    TaskTypeUpdateView, TaskTypeDeleteView,
+    TaskTypeUpdateView,
+    TaskTypeDeleteView,
 )
 
 urlpatterns = [
