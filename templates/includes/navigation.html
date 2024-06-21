@@ -17,14 +17,15 @@
             </button>
             <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
               <ul class="navbar-nav navbar-nav-hover ms-auto">
-                <li class="nav-item dropdown dropdown-hover mx-2">
-                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="{{ user.get_absolute_url }}">
-                    <i class="material-icons opacity-6 me-2 text-md">person</i>
-                    {% if user.is_authenticated %}
-                     {{ user.get_username }}
-                    {% endif %}
-                  </a>
-                </li>
+                {% if user.is_authenticated %}
+                  <li class="nav-item dropdown dropdown-hover mx-2">
+                    <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="{{ user.get_absolute_url }}">
+                      <i class="material-icons opacity-6 me-2 text-md">person</i>
+                      
+                       {{ user.get_username }}
+                    </a>
+                  </li>
+                {% endif %}
                 <li class="nav-item dropdown dropdown-hover mx-2">
                   <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" href="{% url 'manager:task' %}">
                     <i class="material-icons opacity-6 me-2 text-md">assignment</i>

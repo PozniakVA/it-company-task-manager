@@ -1,29 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Worker list</h1>
-  {% include "includes/search.html" %}
-  <br>
-  {% if worker_list %}
-    <table class="table">
-      <tr>
-        <th>Username</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Position</th>
-        <th>Email</th>
-      </tr>
-      {% for worker in worker_list %}
+  <div>
+
+    <h1>Worker list</h1>
+
+    {% include "includes/search.html" %}
+    <br>
+    {% if worker_list %}
+      <table class="table">
         <tr>
-          <td><a href="{% url 'manager:worker-detail' pk=worker.id %}">{{ worker.username }}</a></td>
-          <td>{{ worker.first_name }}</td>
-          <td>{{ worker.last_name }}</td>
-          <td>{{ worker.position }}</td>
-          <td>{{ worker.email }}</td>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Position</th>
+          <th>Email</th>
         </tr>
-      {% endfor %}
-    </table>
-  {% else %}
-    <p>There are no workers</p>
-  {% endif %}
+        {% for worker in worker_list %}
+          <tr>
+            <td><a href="{% url 'manager:worker-detail' pk=worker.id %}">{{ worker.username }}</a></td>
+            <td>{{ worker.first_name }}</td>
+            <td>{{ worker.last_name }}</td>
+            <td>{{ worker.position }}</td>
+            <td>{{ worker.email }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no workers</p>
+    {% endif %}
+  </div>
 {% endblock %}

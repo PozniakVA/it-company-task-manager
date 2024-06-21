@@ -17409,5 +17409,10 @@ pre[class*="language-"] {
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .ps {
     overflow: auto !important; } }
-
 /*# sourceMappingURL=material-kit.css.map */
+.nav-margin {
+    margin-bottom: 3%;
+}
+.margin {
+  padding: 2%;
+}
