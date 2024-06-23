@@ -34,14 +34,11 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %} bg-gray-200">
-  <div class="nav-margin">
-    {% include "includes/navigation.html" %}
-  </div>
 
-
+  {% include "includes/navigation.html" %}
   <div class="container-fluid">
     <div class="row">
-      <div class="margin">
+      <div style="margin: 100px 20px 10px 10px;">
         {% block content %}{% endblock content %}
         {% block pagination %}
           {% include "includes/pagination.html" %}
