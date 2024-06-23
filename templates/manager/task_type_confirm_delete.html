@@ -2,6 +2,7 @@
 
 {% block content %}
   <h1>Delete task?</h1>
+  <p><em>Are you sure?</em></p>
   <form method="post" action="">
     {% csrf_token %}
     <input type="submit" value="Yes" class="btn btn-danger">

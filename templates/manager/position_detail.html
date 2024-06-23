@@ -13,7 +13,7 @@
     {% for worker in position.workers.all %}
       <ul>
         <li>
-          <a href="{% url 'manager:worker-detail' pk=worker.id %}">
+          <a style="font-weight: bold;" href="{% url 'manager:worker-detail' pk=worker.id %}">
             {{ worker.username }}
           </a>
           ({{ worker.first_name }} {{ worker.last_name}})

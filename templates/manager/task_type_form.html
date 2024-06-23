@@ -3,9 +3,11 @@
 
 {% block content %}
   <h1>{{ object|yesno:"Update, Create" }} type</h1>
-  <form method="post" action="">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Submit" class=" btn btn-primary">
-  </form>
+  <div class="input-group input-group-static">
+    <form method="post" action="">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Submit" class=" btn btn-primary">
+    </form>
+  </div>
 {% endblock %}

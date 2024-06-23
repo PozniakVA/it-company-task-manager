@@ -3,9 +3,11 @@
 
 {% block content %}
   <h1> {{ title }} </h1>
+  <div class="input-group input-group-static">
     <form action="" method="post">
       {% csrf_token %}
       {{ form|crispy }}
       <input type="submit" value="Submit" class="btn btn-primary">
     </form>
+  </div>
 {% endblock %}
