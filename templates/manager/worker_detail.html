@@ -12,7 +12,7 @@
   <hr>
   {% if worker.tasks.all %}
     {% for task in worker.tasks.all %}
-      <p><b>Name:</b><a href="{% url 'manager:task-detail' pk=task.id %}"> {{ task.name }}</a></p>
+      <p><b>Name:</b><a style="font-weight: bold;" href="{% url 'manager:task-detail' pk=task.id %}"> {{ task.name }}</a></p>
       <p><b>Task type:</b> {{ task.task_type }}</p>
       <p><b>Deadline:</b> {{ task.deadline }}</p>
       <p><b>Done:</b> {{ task.is_completed }}</p>

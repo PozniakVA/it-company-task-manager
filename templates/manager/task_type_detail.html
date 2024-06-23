@@ -17,7 +17,7 @@
     {% for task in task_type.tasks.all %}
       <ul>
         <li>
-          <a href="{% url 'manager:task-detail' pk=task.id %}">
+          <a style="font-weight: bold;" href="{% url 'manager:task-detail' pk=task.id %}">
             {{ task.name }}
           </a>
         </li>

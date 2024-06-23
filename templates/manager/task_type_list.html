@@ -13,7 +13,7 @@
     {% for task_type in task_type_list %}
       <ul>
         <li>
-          <a href="{% url 'manager:task-type-detail' pk=task_type.id %}">
+          <a style="font-weight: bold;" href="{% url 'manager:task-type-detail' pk=task_type.id %}">
             {{ task_type }}
           </a>
         </li>

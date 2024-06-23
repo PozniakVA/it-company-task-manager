@@ -17,14 +17,14 @@
         <th>Priority</th>
         <th>Type</th>
         <th>Deadline</th>
-        <th>Assign</th>
-        <th>Update</th>
-        <th>Delete</th>
-        <th>Done</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
       {% for task in task_list %}
         <tr>
-          <td><a href="{% url 'manager:task-detail' pk=task.id %}">{{ task.name }}</a></td>
+          <td><a style="font-weight: bold;" href="{% url 'manager:task-detail' pk=task.id %}">{{ task.name }}</a></td>
           <td>{{ task.is_completed }}</td>
           <td>{{ task.priority }}</td>
           <td>{{ task.type }}</td>

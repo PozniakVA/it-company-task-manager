@@ -11,7 +11,7 @@
     {% for position in position_list %}
       <ul>
         <li>
-          <a href="{% url 'manager:position-detail' pk=position.id %}">{{ position }} </a>
+          <a style="font-weight: bold;" href="{% url 'manager:position-detail' pk=position.id %}">{{ position }} </a>
         </li>
       </ul>
     {% endfor %}
