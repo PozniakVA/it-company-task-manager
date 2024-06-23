@@ -14,7 +14,9 @@ class TaskForm(forms.ModelForm):
     deadline = forms.DateField(
         required=True,
         widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}),
-        input_formats=["%Y-%m-%d"]
+        input_formats=["%Y-%m-%d"],
+
+
     )
 
     class Meta:

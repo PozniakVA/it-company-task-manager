@@ -43,9 +43,9 @@ class Worker(AbstractUser):
 
 class Task(models.Model):
     PRIORITY = (
-        ("Low Priority", "Immediate priority and quick completion"),
+        ("Low Priority", "Lower urgency"),
         ("Standard", "Normal completion pace"),
-        ("Fast Track", "Lower urgency")
+        ("Fast Track", "Immediate priority and quick completion")
     )
 
     name = models.CharField(unique=True, max_length=100)
