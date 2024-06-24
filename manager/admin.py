@@ -35,4 +35,3 @@ class WorkerAdmin(UserAdmin):
             ),
         )
     )
-

@@ -18,7 +18,9 @@ from manager.models import Worker, Task, Position, TaskType
 
 def index(request) -> HttpResponse:
     num_workers = Worker.objects.count()
-    num_not_completed_tasks = Task.objects.filter(is_completed=False).count()
+    num_not_completed_tasks = Task.objects.filter(
+        is_completed=False
+    ).count()
     num_not_completed_fast_track_tasks = Task.objects.filter(
         is_completed=False,
         priority="Fast Track"
@@ -33,7 +35,11 @@ def index(request) -> HttpResponse:
             num_not_completed_fast_track_tasks,
         "num_visits": num_visits,
     }
-    return render(request, "manager/index.html", context=context)
+    return render(
+        request,
+        "manager/index.html",
+        context=context
+    )
 
 
 class WorkerListView(LoginRequiredMixin, generic.ListView):
@@ -43,14 +49,18 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(WorkerListView, self).get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        context["search_form"] = WorkerSearchForm(initial={"username": username})
+        context["search_form"] = WorkerSearchForm(
+            initial={"username": username}
+        )
         return context
 
     def get_queryset(self):
         queryset = Worker.objects.all()
         form = WorkerSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(username__icontains=form.cleaned_data["username"])
+            return queryset.filter(
+                username__icontains=form.cleaned_data["username"]
+            )
         return queryset
 
 
@@ -194,7 +204,10 @@ class TaskTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("manager:task-type-list")
 
 
-class AssignDeleteUserToTaskView(LoginRequiredMixin, generic.UpdateView):
+class AssignDeleteUserToTaskView(
+    LoginRequiredMixin,
+    generic.UpdateView
+):
     model = Task
     form_class = TaskAssignDeleteForm
 
@@ -210,4 +223,3 @@ def task_done(request, pk) -> HttpResponseRedirect:
     task.is_completed = not task.is_completed
     task.save()
     return HttpResponseRedirect(reverse_lazy("manager:task"))
-

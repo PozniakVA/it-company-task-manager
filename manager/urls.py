@@ -26,11 +26,31 @@ from manager.views import (
 
 urlpatterns = [
     path("", index, name="index"),
-    path("worker/", WorkerListView.as_view(), name="worker"),
-    path("worker/<int:pk>/", WorkerDetailView.as_view(), name="worker-detail"),
-    path("task/", TaskListView.as_view(), name="task"),
-    path("task/<int:pk>/", TaskDetailView.as_view(), name="task-detail"),
-    path("task/create/", TaskCreateView.as_view(), name="task-create"),
+    path(
+        "worker/",
+        WorkerListView.as_view(),
+        name="worker"
+    ),
+    path(
+        "worker/<int:pk>/",
+        WorkerDetailView.as_view(),
+        name="worker-detail"
+    ),
+    path(
+        "task/",
+        TaskListView.as_view(),
+        name="task"
+    ),
+    path(
+        "task/<int:pk>/",
+        TaskDetailView.as_view(),
+        name="task-detail"
+    ),
+    path(
+        "task/create/",
+        TaskCreateView.as_view(),
+        name="task-create"
+    ),
     path(
         "task/<int:pk>/update/",
         TaskUpdateView.as_view(),
@@ -49,18 +69,46 @@ urlpatterns = [
         "task/<int:pk>/task-done/",
         task_done,
         name="task-done"),
-    path("position/", PositionListView.as_view(), name="position"),
-    path("position/<int:pk>/", PositionDetailView.as_view(), name="position-detail"),
-    path("position/create/", PositionCreateView.as_view(), name="position-create"),
+    path(
+        "position/",
+        PositionListView.as_view(),
+        name="position"
+    ),
+    path(
+        "position/<int:pk>/",
+        PositionDetailView.as_view(),
+        name="position-detail"
+    ),
+    path(
+        "position/create/",
+        PositionCreateView.as_view(),
+        name="position-create"
+    ),
     path(
             "position/<int:pk>/update/",
             PositionUpdateView.as_view(),
             name="position-update"
     ),
-    path("position/<int:pk>/delete/", PositionDeleteView.as_view(), name="position-delete"),
-    path("task-type/", TaskTypeListView.as_view(), name="task-type-list"),
-    path("task-type/<int:pk>/", TaskTypeDetailView.as_view(), name="task-type-detail"),
-    path("task-type/create/", TaskTypeCreateView.as_view(), name="task-type-create"),
+    path(
+        "position/<int:pk>/delete/",
+        PositionDeleteView.as_view(),
+        name="position-delete"
+    ),
+    path(
+        "task-type/",
+        TaskTypeListView.as_view(),
+        name="task-type-list"
+    ),
+    path(
+        "task-type/<int:pk>/",
+        TaskTypeDetailView.as_view(),
+        name="task-type-detail"
+    ),
+    path(
+        "task-type/create/",
+        TaskTypeCreateView.as_view(),
+        name="task-type-create"
+    ),
     path(
         "task-type/<int:pk>/update/",
         TaskTypeUpdateView.as_view(),
