@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete task?</h1>
-  <p><em>Are you sure?</em></p>
-  <form method="post" action="">
+    <h1>Delete page</h1>
+  <hr>
+  <strong>ARE YOU SURE?</strong>
+  <p><i>Deleting a task type will delete all task with that type!</i></p>
+  <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Yes" class="btn btn-danger">
+    <input class="btn btn-danger" type="submit" value="Delete">
+    <a href="{% url "manager:task-type-detail" pk=task_type.id %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
