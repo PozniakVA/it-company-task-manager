@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.forms import CheckboxSelectMultiple
 
-from manager.models import Task, Position, TaskType
+from manager.models import Task, TaskType
 
 
 class TaskForm(forms.ModelForm):
@@ -43,26 +43,11 @@ class TaskAssignDeleteForm(forms.ModelForm):
         fields = ("assignees",)
 
 
-class PositionForm(forms.ModelForm):
-    class Meta:
-        model = Position
-        fields = "__all__"
-
-
 class TaskTypeForm(forms.ModelForm):
 
     class Meta:
         model = TaskType
         fields = "__all__"
-
-
-class WorkerSearchForm(forms.Form):
-    username = forms.CharField(
-        max_length=255,
-        label="",
-        required=False,
-        widget=forms.TextInput(attrs={"placeholder": "Search by username"})
-    )
 
 
 class TaskSearchForm(forms.Form):
@@ -71,15 +56,6 @@ class TaskSearchForm(forms.Form):
         label="",
         required=False,
         widget=forms.TextInput(attrs={"placeholder": "Search by name"})
-    )
-
-
-class PositionSearchForm(forms.Form):
-    name = forms.CharField(
-        max_length=255,
-        label="",
-        required=False,
-        widget=forms.TextInput(attrs={"placeholder": "Search by position"})
     )
 
 

@@ -1,8 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
+from user.forms import WorkerSearchForm, PositionSearchForm, PositionForm
 from user.models import Worker, Position
 
 

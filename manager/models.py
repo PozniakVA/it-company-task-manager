@@ -1,6 +1,6 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.urls import reverse
+
+from user.models import Worker
 
 
 class TaskType(models.Model):
@@ -11,34 +11,6 @@ class TaskType(models.Model):
 
     def __str__(self) -> str:
         return self.name
-
-
-class Position(models.Model):
-    name = models.CharField(unique=True, max_length=100)
-
-    class Meta:
-        ordering = ["name"]
-
-    def __str__(self) -> str:
-        return self.name
-
-
-class Worker(AbstractUser):
-    position = models.ForeignKey(
-        Position,
-        on_delete=models.CASCADE,
-        related_name="workers",
-    )
-
-    class Meta:
-        verbose_name = "Worker"
-        verbose_name_plural = "Workers"
-
-    def __str__(self) -> str:
-        return f"{self.username} ({self.first_name} {self.last_name})"
-
-    def get_absolute_url(self):
-        return reverse("manager:worker-detail", kwargs={"pk": self.pk})
 
 
 class Task(models.Model):

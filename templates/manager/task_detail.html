@@ -16,7 +16,7 @@
     {% for assignee in task.assignees.all %}
       <ul>
         <li>
-          <a style="font-weight: bold;" href="{% url 'manager:worker-detail' pk=assignee.id %}">{{ assignee.username }}</a>
+          <a style="font-weight: bold;" href="{% url 'user:worker-detail' pk=assignee.id %}">{{ assignee.username }}</a>
         </li>
       </ul>
       {% endfor %}
