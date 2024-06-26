@@ -53,7 +53,7 @@ class PositionListView(LoginRequiredMixin, generic.ListView):
 class PositionCreateView(LoginRequiredMixin, generic.CreateView):
     model = Position
     form_class = PositionForm
-    success_url = reverse_lazy("manager:position")
+    success_url = reverse_lazy("user:position")
 
 
 class PositionDetailView(LoginRequiredMixin, generic.DetailView):
@@ -67,5 +67,5 @@ class PositionUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class PositionDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Position
-    success_url = reverse_lazy("manager:position")
+    success_url = reverse_lazy("user:position")
 
