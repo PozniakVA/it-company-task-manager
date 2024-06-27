@@ -26,6 +26,6 @@ def index(request) -> HttpResponse:
     }
     return render(
         request,
-        "manager/index.html",
+        "core/index.html",
         context=context
     )

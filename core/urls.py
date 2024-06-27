@@ -1,7 +1,7 @@
 from django.urls import path
 
 
-from manager.views import (
+from core.views import (
     index,
 )
 
@@ -9,4 +9,4 @@ urlpatterns = [
     path("", index, name="index"),
 ]
 
-app_name = "manager"
+app_name = "core"

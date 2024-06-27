@@ -161,7 +161,7 @@ class Migration(migrations.Migration):
                     "position",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="manager.position",
+                        to="core.position",
                     ),
                 ),
             ],
@@ -212,7 +212,7 @@ class Migration(migrations.Migration):
                     "task_type",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="manager.tasktype",
+                        to="core.tasktype",
                     ),
                 ),
             ],

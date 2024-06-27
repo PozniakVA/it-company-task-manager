@@ -28,7 +28,7 @@ List the prerequisites, such as software or packages that need to be installed:
     ```
 2. Navigate to the project directory:
     ```bash
-    cd task-manager
+    cd task-core
     ```
 3. Install the dependencies:
     ```bash
