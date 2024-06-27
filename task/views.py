@@ -128,9 +128,9 @@ class AssignDeleteUserToTaskView(
     success_url = reverse_lazy("task:task")
 
 
-@login_required
-def task_done(request, pk) -> HttpResponseRedirect:
-    task = Task.objects.get(id=pk)
-    task.is_completed = not task.is_completed
-    task.save()
-    return HttpResponseRedirect(reverse_lazy("task:task"))
+class TaskDoneView(LoginRequiredMixin, generic.View):
+    def get(self, request, pk):
+        task = Task.objects.get(id=pk)
+        task.is_completed = not task.is_completed
+        task.save()
+        return HttpResponseRedirect(reverse_lazy("task:task"))

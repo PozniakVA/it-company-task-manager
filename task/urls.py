@@ -9,7 +9,7 @@ from task.views import (
     TaskUpdateView,
     TaskDeleteView,
     AssignDeleteUserToTaskView,
-    task_done,
+    TaskDoneView,
     TaskTypeDetailView,
     TaskTypeCreateView,
     TaskTypeUpdateView,
@@ -48,7 +48,7 @@ urlpatterns = [
     ),
     path(
         "task/<int:pk>/task-done/",
-        task_done,
+        TaskDoneView.as_view(),
         name="task-done"),
     path(
         "task-type/",
