@@ -21,5 +21,6 @@ class TestModel(TestCase):
     def test_worker_str(self) -> None:
         self.assertEqual(
             str(self.worker),
-            f"{self.worker.username} ({self.worker.first_name} {self.worker.last_name})"
+            f"{self.worker.username} "
+            f"({self.worker.first_name} {self.worker.last_name})"
         )

@@ -235,11 +235,15 @@ class PrivateTaskTypeTest(BaseTestCase):
         self.assertEqual(len(response.context["object_list"]), 2)
 
         # Checking that only one task is found
-        response = self.client.get(reverse("task:task-type-list"), {"name": "Task Type 1"})
+        response = self.client.get(
+            reverse("task:task-type-list"), {"name": "Task Type 1"}
+        )
         self.assertEqual(len(response.context["object_list"]), 1)
 
         # Checking that nothing was found
-        response = self.client.get(reverse("task:task-type-list"), {"name": "Task Type -3"})
+        response = self.client.get(
+            reverse("task:task-type-list"), {"name": "Task Type -3"}
+        )
         self.assertEqual(len(response.context["object_list"]), 0)
 
 

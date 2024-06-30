@@ -107,11 +107,15 @@ class PrivateWorkerTest(BaseTestCase):
         self.assertEqual(len(response.context["object_list"]), 2)
 
         # Checking that only one task is found
-        response = self.client.get(reverse("user:worker"), {"username": "Test1"})
+        response = self.client.get(
+            reverse("user:worker"), {"username": "Test1"}
+        )
         self.assertEqual(len(response.context["object_list"]), 1)
 
         # Checking that nothing was found
-        response = self.client.get(reverse("user:worker"), {"username": "Test -3"})
+        response = self.client.get(
+            reverse("user:worker"), {"username": "Test -3"}
+        )
         self.assertEqual(len(response.context["object_list"]), 0)
 
 
@@ -164,5 +168,7 @@ class PrivatePositionTest(BaseTestCase):
         self.assertEqual(len(response.context["object_list"]), 1)
 
         # Checking that nothing was found
-        response = self.client.get(reverse("user:position"), {"name": "Test -3"})
+        response = self.client.get(
+            reverse("user:position"), {"name": "Test -3"}
+        )
         self.assertEqual(len(response.context["object_list"]), 0)
