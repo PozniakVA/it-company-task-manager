@@ -57,3 +57,11 @@ To deploy the Task Manager locally, follow these steps:
         ```bash
         pytest
         ```
+
+# Database schema
+
+## View 1
+![Database scheme 1](static/assets/img/DB-schema-1.png)
+
+## View 2
+![Database scheme 1](static/assets/img/DB-schema-2.png)
