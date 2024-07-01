@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Position list
+    <a href="{% url 'user:position-create' %}" class="btn btn-primary link-to-page">Create</a>
+  </h1>
+  {% include "includes/search.html" %}
+  <br>
+  {% if position_list %}
+    {% for position in position_list %}
+      <ul>
+        <li>
+          <a style="font-weight: bold;" href="{% url 'user:position-detail' pk=position.id %}">{{ position }} </a>
+        </li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p>There are no workers</p>
+  {% endif %}
+{% endblock %}
