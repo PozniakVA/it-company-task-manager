@@ -32,13 +32,8 @@
                   <div class="input-group-outline mb-3">
                     <form method="post" action="{% url 'login' %}">
                       {% csrf_token %}
-                      <div class="border-bottom">
-                        {{ form.username|as_crispy_field }}
-                      </div><br>
-                      <div class="border-bottom">
-                        {{ form.password|as_crispy_field }}
-                      </div>
-
+                        {{ form|crispy }}
+                      
                       <input type="submit" value="Login" class="btn bg-gradient-primary w-100 my-4 mb-2"/>
                       <input type="hidden" name="next" value="{{ next }}" />
                     </form>
