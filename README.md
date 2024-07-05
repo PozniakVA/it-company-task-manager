@@ -11,6 +11,9 @@
 - Create, delete, and update task types.
 - View information about task workers, types of tasks, and professions.
 
+## Additionally
+Some **names** have links to detailed information about themselves and edit and delete buttons
+
 ## Getting Started
 These instructions will help you set up the Task Manager on your local machine for development and testing purposes.
 
@@ -60,3 +63,21 @@ To deploy the Task Manager locally, follow these steps:
 
 # Database schema
 ![Database scheme 1](static/assets/img/DB-schema-1.png)
+
+# Home page
+![Home page](static/assets/img/home-page.png)
+
+# Worker detail
+![Worker detail](static/assets/img/worker-detail.png)
+
+# Task list
+![Task list](static/assets/img/task-list.png)
+
+# Worker list
+![Worker list](static/assets/img/worker-list.png)
+
+# Position list
+![Position list](static/assets/img/position-list.png)
+
+# Task type list
+![Task type list](static/assets/img/task-type-list.png)

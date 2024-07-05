@@ -13,6 +13,9 @@ class Position(models.Model):
     def __str__(self) -> str:
         return self.name
 
+    def get_absolute_url(self):
+        return reverse("user:position-detail", kwargs={'pk': self.pk})
+
 
 class Worker(AbstractUser):
     position = models.ForeignKey(
