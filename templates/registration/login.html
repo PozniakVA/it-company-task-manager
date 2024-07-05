@@ -26,17 +26,16 @@
             </div>
             <div class="card-body">
               {% if next %}
-                <p>Please login to see this page.</p>
+                <p class="text-center">Please login to see this page.</p>
               {% endif %}
-              <div>
-                  <div class="input-group-outline mb-3">
-                    <form method="post" action="{% url 'login' %}">
-                      {% csrf_token %}
-                        {{ form|crispy }}
-                      
-                      <input type="submit" value="Login" class="btn bg-gradient-primary w-100 my-4 mb-2"/>
-                      <input type="hidden" name="next" value="{{ next }}" />
-                    </form>
+              <div class="mt-4 d-flex justify-content-center">
+              <div class="input-group input-group-static d-flex justify-content-center">
+                <form action="" method="post">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <br>
+                  <div class="d-flex justify-content-center">
+                    <input type="submit" value="Submit" class="btn btn-primary">
                   </div>
             </div>
           </div>
