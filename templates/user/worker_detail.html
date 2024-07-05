@@ -28,12 +28,12 @@
                 <br>
                 {% if worker.tasks.all %}
                   {% for task in worker.tasks.all %}
-                    <div class="alert alert-light">
-                      <p><b>Name:</b><a style="font-weight: bold;" href="{% url 'task:task-detail' pk=task.id %}"> {{ task.name }}</a></p>
+                    <div class="alert alert-primary">
+                      <p><b>Name:</b><a style="font-weight: bold; color: lightgoldenrodyellow;" href="{% url 'task:task-detail' pk=task.id %}"> {{ task.name }}</a></p>
                       <p><b>Task type:</b> {{ task.task_type }}</p>
                       <p><b>Deadline:</b> {{ task.deadline }}</p>
                       <p><b>Done:</b> {{ task.is_completed }}</p>
-                      <p class="text-muted" ><b>ID:</b> {{ task.id }}</p>
+                      <p><b>ID:</b> {{ task.id }}</p>
                     </div>
                     <br>
                   {% endfor %}
