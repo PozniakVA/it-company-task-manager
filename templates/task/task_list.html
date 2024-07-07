@@ -1,0 +1,88 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block content %}
+  <div style="background-image: url('{{ ASSETS_ROOT }}/img/bg10.jpg'); " loading="lazy">
+    <span class="bg-gradient-primary opacity-4 position-absolute w-100 h-100"></span>
+    <div class="overflow-auto page-header align-items-start min-vh-100 ">
+      <div class="mt-8 d-block mx-auto">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="alert alert-white p-1 m-1">
+            {% include "includes/search.html" %}
+          </div>
+          <a href="{% url 'task:task-create' %}" class="btn btn-primary link-to-page">Create</a>
+        </div>
+        <div class="row mt-7">
+            <div>
+              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 rounded-bottom">
+                <div class="bg-gradient-primary shadow-primary py-2 pe-1 rounded-top">
+                  <h2 class="text-white font-weight-bolder text-center mt-2 mb-0">
+                    Task list
+                  </h2>
+                </div>
+                  <div>
+                    <div class="mt-4">
+                      {% if task_list %}
+                        <table class="table align-items-center">
+                          <tr class="text-center">
+                            <th>Name</th>
+                            <th>Completed</th>
+                            <th>Priority</th>
+                            <th>Type</th>
+                            <th>Deadline</th>
+                            <th>Assign</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                            <th>Done</th>
+                          </tr>
+                          {% for task in task_list %}
+                            <tr class="text-center">
+                              <td><a style="font-weight: bold;" href="{% url 'task:task-detail' pk=task.id %}">{{ task.name }}</a></td>
+                              <td>{{ task.is_completed }}</td>
+                              <td>{{ task.priority }}</td>
+                              <td>{{ task.task_type }}</td>
+                              <td>{{ task.deadline }}</td>
+                              <td>
+                                <a href="{% url 'task:task-assign-delete' pk=task.id %}" class="btn btn-info">
+                                  ASSIGN
+                                </a>
+                              </td>
+                              <td>
+                                <a href="{% url 'task:task-update' pk=task.id %}" class="btn btn-warning">
+                                  UPDATE
+                                </a>
+                              </td>
+                              <td>
+                                <a href="{% url 'task:task-delete' pk=task.id %}" class="btn btn-danger">
+                                  DELETE
+                                </a>
+                              </td>
+                              <td>
+                                {% if task.is_completed %}
+                                <a href="{% url 'task:task-done' pk=task.id %}" class="btn btn-danger">
+                                  Cancel
+                                </a>
+                                {% else %}
+                                  <a href="{% url 'task:task-done' pk=task.id %}" class="btn btn-success">
+                                  Done
+                                </a>
+                                {% endif %}
+                              </td>
+  
+                            </tr>
+                          {% endfor %}
+                        </table>
+                      {% else %}
+                        <p class="text-center">There are no tasks</p>
+                      {% endif %}
+                      </div>
+                    <div class="d-flex justify-content-center">
+                        {% include "includes/pagination.html" %}
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

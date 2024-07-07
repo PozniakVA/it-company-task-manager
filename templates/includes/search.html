@@ -1,0 +1,10 @@
+{% load crispy_forms_filters %}
+
+<form method="get" action="" class="form-inline">
+  <div class="d-flex align-items">
+    {{ search_form|crispy }}
+    <button type="submit" class="btn-primary">
+      <img src="{{ ASSETS_ROOT }}/img/44623.png" alt="🔍" style="height: 20px; width: 20px;">
+    </button>
+  </div>
+</form>

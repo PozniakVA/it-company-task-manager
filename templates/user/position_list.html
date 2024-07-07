@@ -1,0 +1,44 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block content %}
+  <div class="page-header align-items-start min-vh-100" style="background-image: url('{{ ASSETS_ROOT }}/img/bg10.jpg');" loading="lazy">
+    <span class="mask bg-gradient-primary opacity-4"></span>
+    <div class="container mt-8">
+              <div class="d-flex justify-content-between align-items-center">
+            <div class="alert alert-white p-1">
+                {% include "includes/search.html" %}
+            </div>
+            <a href="{% url 'user:position-create' %}" class="btn btn-primary link-to-page">Create</a>
+        </div>
+      <div class="row">
+        <div class="col-lg-5 col-md-8 col-12 mx-auto mt-9 mb-4">
+          <div class="card z-index-0 fadeIn3 fadeInBottom">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <h2 class="text-white font-weight-bolder text-center mt-2 mb-0">
+                  Position list
+                </h2>
+              </div>
+                <div>
+                <br>
+                  {% if position_list %}
+                    {% for position in position_list %}
+                      <ul>
+                        <li>
+                          <a style="font-weight: bold;" href="{% url 'user:position-detail' pk=position.id %}">{{ position }} </a>
+                        </li>
+                      </ul>
+                    {% endfor %}
+                  {% else %}
+                    <p>There are no workers</p>
+                  {% endif %}
+                  <div class="d-flex justify-content-center">
+                      {% include "includes/pagination.html" %}
+                  </div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
