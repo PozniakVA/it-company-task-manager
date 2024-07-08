@@ -14,6 +14,15 @@
 ## Additionally
 Some **names** have links to detailed information about themselves and edit and delete buttons
 
+## Deployment
+The project is deployed and can be tested at the following link:
+https://task-manager-6kb6.onrender.com
+
+## Login Details
+To test the project, use the following login details:
+
+- **Username**: `user`
+- **Password**: `user12345`
 ## Getting Started
 These instructions will help you set up the Task Manager on your local machine for development and testing purposes.
 
